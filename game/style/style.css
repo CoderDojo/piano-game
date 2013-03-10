@@ -1,0 +1,104 @@
+body {
+	background-color: black;
+	margin: 0px;
+	font-family: 'Ubuntu',sans-serif;
+    font-weight: 400;
+}
+
+div.navDiv {
+	border-radius: 0 0 0 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: none repeat scroll 0 0 #000000;
+    border-bottom: 1px solid #222222;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    min-height: 40px;
+}
+
+img#logo {
+	width: 30px;
+	margin-top: 5px;
+	float: left;
+}
+
+img#intel {
+	width: 50px;
+	margin-top: 5px;
+	margin-left: 30%;
+}
+
+img#eskills {
+	height: 30px;
+	margin-top: 5px;
+	float: right;
+}
+
+div.navDiv .heading {
+	color: #999999;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+}
+
+div.pianoTop {
+	background: url("../images/top.jpg") no-repeat scroll center top / cover #000000;
+    margin-bottom: 0;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    width: auto;
+    height: 100px;
+}
+
+div.pianoKeys {
+	width: 1024px;
+	margin-left: auto;
+	margin-right:auto;
+	padding: 0px;
+	border-top: solid 1px black;
+}
+
+div.key {
+	border: solid 1px gray;
+	float: left;
+	margin: 0px;
+}
+
+div.sharp {
+	border: solid 1px gray;
+	position: absolute;
+	margin: 0px;
+	background-color: white;
+}
+
+div.sharpC0 {
+	margin-left: 60px;
+}
+
+div.sharpD0 {
+	margin-left: 150px;
+}
+
+div.sharpF0 {
+	margin-left: 340px;
+}
+
+div.sharpG0 {
+	margin-left: 430px;
+}
+
+div.sharpBb {
+	margin-left: 520px;
+}
+
+div.sharpC1 {
+	margin-left: 700px;
+}
+
+div.sharpD1 {
+	margin-left: 790px;
+}
