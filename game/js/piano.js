@@ -1,64 +1,77 @@
-window.onload = setup
+window.onload = setup;
+		
+var tunes;
+var song;
+var songsDropDown;
+var score = 0;
+var scorePanel;
 
-var keyPressed = false;
-
-function MusicKey(noteFile, imageId) {
-		
-		var noteFile = noteFile;
-		var imageId = imageId;
-		
-		var note = $("#"+imageId);
-		
-		note.click(function() {
-			if(!keyPressed) {
-				keyPressed = true;
-				changeKeyImage();
-				playAudio();
-				setTimeout(resetKeyImage, 100);
-				keyPressed = false;	
-			}
-		});
-		
-		function changeKeyImage() {
-			note.attr('src','images/key-pressed.png');
-			note.css('height','390px');
-		}
-		
-		function playAudio() {
-			var audio = "<audio style='display: none' autoplay><source src="+noteFile+" type='audio/wav'/></audio>";
-			note.append(audio);
-		}
-		
-		function resetKeyImage() {
-			note.css('height','400px');
-			note.attr('src','images/key.png');
-		}		
-}
-
-
-var keyC;
-var keyD;
-var keyE;
-var keyF;
-var keyG;
-var keyA;
-var keyB;
-var keyC1;
-var keyD1;
-var keyE1;
-var keyF1;
+var keyboard;
 
 function setup() {
-	keyC = new MusicKey('notes/C.wav','keyC');
-	keyD = new MusicKey('notes/D.wav','keyD');
-	keyE = new MusicKey('notes/E.wav','keyE');
-	keyF = new MusicKey('notes/F.wav','keyF');
-	keyG = new MusicKey('notes/G.wav','keyG');
-	keyA = new MusicKey('notes/A.wav','keyA');
-	keyB = new MusicKey('notes/B.wav','keyB');
-	keyC1 = new MusicKey('notes/C1.wav','keyC1');
-	keyD1 = new MusicKey('notes/D1.wav','keyD1');
-	keyE1 = new MusicKey('notes/G1.wav','keyE1');
-	keyF1 = new MusicKey('notes/F1.wav','keyF1');
+	songsDropDown = jQuery("#songs");
+	scorePanel = jQuery("#score");
+	createKeys();
+	loadTunes();
+	handlePlaySong();
+	document.onkeydown = handleKeyboardClick;
 }
-o
+
+function handlePlaySong() {
+	var playButton = jQuery("#playSong");
+	playButton.click(function() {
+		var songOption = jQuery("#songs option:selected");
+		var songValue = songOption.val();
+		song = new Song(tunes[songValue], 1000);
+		score = 0;
+		scorePanel.text(score);
+		song.play();
+	});
+}
+
+function createKeys() {
+	keyboard = new KeyBoard();
+	keyboard.load();
+}
+
+function loadTunes() {
+	jQuery.getJSON('js/tunes.json', function(data, textStatus) {
+		if (textStatus == "success") {
+			tunes = data;
+			loadSongsToScreen();
+		}
+		else {
+			alert("JSON non-success status for tunes: " + textStatus);
+		}
+	});
+}
+
+function loadSongsToScreen() {
+	for(var currentSongNumber = 0; currentSongNumber < tunes.length; currentSongNumber++) {
+		var songName = tunes[currentSongNumber].name;
+		appendOption(songName);
+	}
+}
+
+function appendOption(songName) {
+	songsDropDown.append('<option value="' +0+'">'+
+		songName +'</option>');
+}
+
+function handleKeyboardClick(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		var keyCode = new KeyCode();
+		var keyHit = keyCode.getCharacter(code);
+		
+		var currentNote = song.note();
+		var keySelect = song.getCurrentKey();
+
+		var musicKey = keyboard.getKey(currentNote);
+		console.log(musicKey.keyboardKey + '- '+ keySelect);
+
+		if(keyHit == keySelect) {
+			musicKey.clickNote();
+			score = score + 10;
+			scorePanel.text(score);
+		}
+}

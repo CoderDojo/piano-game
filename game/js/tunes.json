@@ -1,0 +1,29 @@
+[{
+	"name": "Happy Birthday", 
+	"notes": [
+		{ "note":"D", "keyboard": "s"},
+		{ "note":"D1", "keyboard":"b"},
+		{ "note":"E", "keyboard":"d"},
+		{ "note":"G", "keyboard":"g"},
+		{ "note":"F", "keyboard":"f"},
+		{ "note":"D1","keyboard":"b"},
+		{ "note":"D", "keyboard": "s"},
+		{ "note":"E1", "keyboard": "y"},
+		{ "note":"D", "keyboard": "s"},
+		{ "note":"A", "keyboard":"h"}, 
+		{ "note":"G", "keyboard":"g"},
+		{ "note":"D1", "keyboard":"b"},
+		{ "note":"D", "keyboard": "s"},
+		{ "note":"D", "keyboard": "s"},
+		{ "note":"B", "keyboard":"j"},
+		{ "note":"A", "keyboard":"h"}, 
+		{ "note":"G", "keyboard":"g"},
+		{ "note":"F", "keyboard":"f"},
+		{ "note":"C1", "keyboard":"k"},
+		{ "note":"C", "keyboard":"a"},
+		{ "note":"B", "keyboard":"j"},
+		{ "note":"G", "keyboard":"g"},
+		{ "note":"A", "keyboard":"h"}, 
+		{ "note":"G", "keyboard":"g"}
+	]
+}]
