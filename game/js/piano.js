@@ -49,12 +49,12 @@ function loadTunes() {
 function loadSongsToScreen() {
 	for(var currentSongNumber = 0; currentSongNumber < tunes.length; currentSongNumber++) {
 		var songName = tunes[currentSongNumber].name;
-		appendOption(songName);
-	}
+		appendOption(songName, currentSongNumber);
+	} 
 }
 
-function appendOption(songName) {
-	songsDropDown.append('<option value="' +0+'">'+
+function appendOption(songName, songVal) {
+	songsDropDown.append('<option value="' +songVal+'">'+
 		songName +'</option>');
 }
 
@@ -67,7 +67,6 @@ function handleKeyboardClick(e) {
 		var keySelect = song.getCurrentKey();
 
 		var musicKey = keyboard.getKey(currentNote);
-		console.log(musicKey.keyboardKey + '- '+ keySelect);
 
 		if(keyHit == keySelect) {
 			musicKey.clickNote();

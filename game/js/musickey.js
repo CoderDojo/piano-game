@@ -1,13 +1,14 @@
 var keyPressed = false;
 
-function MusicKey(noteFile, noteId, selectedCss) {
+function MusicKey(audioId, noteId, selectedCss) {
 		
-		var noteFile = noteFile;
+		var audioId = audioId;
 		var imageId = imageId;
 		var selectedCss = selectedCss;
 		
 		this.clickNote = clickNote;
 		this.getCurrentNote = getCurrentNote;
+		var audio = new Audio();
 		
 		var note = $("#"+noteId);
 		
@@ -38,7 +39,9 @@ function MusicKey(noteFile, noteId, selectedCss) {
 		}
 		
 		function playAudio() {
-			var audio = "<audio style='display: none' autoplay><source src="+noteFile+" type='audio/wav'/></audio>";
-			note.append(audio);
+			audio = $("#" + audioId)[0];
+			audio.pause();
+			audio.currentTime=0;
+			audio.play();			
 		}
 }

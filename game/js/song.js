@@ -33,14 +33,16 @@ function Song(songDetails, timeout) {
 		if(currentNoteNumber < notes.length) {
 			this.currentNote = notes[currentNoteNumber].note;
 			this.currentKey =  notes[currentNoteNumber].keyboard;
-			currentMusicKey = keyboard.getKey(currentNote).getCurrentNote();
-			currentMusicKey.addClass('nextNote');
-			setNoteColor();
-			notePanel.text(currentNote);
-			keyboardPanel.text(currentKey);
-			currentNoteNumber++;
-			setTimeout(displayNextNote, timeout);
-			setTimeout(removeKeySupport, 800);
+			if(currentNote != "" && currentKey != "") {
+				currentMusicKey = keyboard.getKey(currentNote).getCurrentNote();
+				currentMusicKey.addClass('nextNote');
+				setNoteColor();
+				notePanel.text(currentNote);
+				keyboardPanel.text(currentKey);
+				currentNoteNumber++;
+				setTimeout(displayNextNote, timeout);
+				setTimeout(removeKeySupport, 800);
+			}
 		}
 	}
 	
