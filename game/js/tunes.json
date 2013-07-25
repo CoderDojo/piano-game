@@ -17,15 +17,17 @@
 		{ "note":"C", "keyboard":"a"},
 		{ "note":"C1", "keyboard":"k"},
 		{ "note":"A", "keyboard":"h"}, 
-		{ "note":"G", "keyboard":"g"},
-		{ "note":"A", "keyboard":"h"}, 
-		{ "note":"A", "keyboard":"h"}, 
+		{ "note":"F", "keyboard":"f"},
+		{ "note":"E", "keyboard":"d"}, 
+		{ "note":"D", "keyboard":"s"},
 		{ "note":"B", "keyboard":"j"},
+		{ "note":"B", "keyboard":"j"},
+		{ "note":"A", "keyboard":"h"}, 
 		{ "note":"F", "keyboard":"f"},
 		{ "note":"G", "keyboard":"g"},
 		{ "note":"F", "keyboard":"f"},
 		{ "note":"", "keyboard":""}
-	]
+	]	
 }, {
 	"name": "The Entertainer", 
 	"notes": [
