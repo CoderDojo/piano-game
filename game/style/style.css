@@ -5,11 +5,9 @@ body {
     font-weight: 400;
 }
 
-div.menuDiv {
-	border-radius: 0 0 0 0;
+div.gameDiv {
     padding-left: 0;
     padding-right: 0;
-    background: none repeat scroll 0 0 #000000;
     border-bottom: 1px solid #222222;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
     min-height: 130px;

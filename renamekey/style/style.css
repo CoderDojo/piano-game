@@ -1,53 +1,40 @@
 body {
-	background-color: black;
-	margin: 0px;
-	font-family: 'Ubuntu',sans-serif;
+    background-color: black;
+    margin: 0px;
+    font-family: 'Ubuntu',sans-serif;
     font-weight: 400;
 }
 
-div.menuDiv {
-	border-radius: 0 0 0 0;
-    padding-left: 0;
-    padding-right: 0;
-    background: none repeat scroll 0 0 #000000;
-    border-bottom: 1px solid #222222;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
-    min-height: 130px;
-    width: 1050px;
+img#logo {
+    width: 60px;
+    margin-top: 5px;
+    float: left;
+}
+
+div.rockStar {
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-img#logo {
-	width: 60px;
-	margin-top: 5px;
-	float: left;
-}
-
-div.rockStar {
-	width: 600px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 img#intel {
-	width: 120px;
-	margin-top: -10px;
-	float: left;
+    width: 120px;
+    margin-top: -10px;
+    float: left;
 }
 
 img#eskills {
-	height: 30px;
+    height: 30px;
 }
 
 div.logoDiv {
-	width: 210px;
-	float: left;
-	margin-top: -20px;
+    width: 210px;
+    float: left;
+    margin-top: -20px;
 }
 
 .heading {
-	color: #999999;
+    color: #999999;
     display: block;
     float: left;
     font-size: 40px;
@@ -62,7 +49,7 @@ div.logoDiv {
 
 
 div.pianoTop {
-	background: url("../images/top.jpg") no-repeat scroll center top / cover #000000;
+    background: url("../images/top.jpg") no-repeat scroll center top / cover #000000;
     margin-bottom: 0;
     padding-bottom: 50px;
     padding-top: 30px;
@@ -71,33 +58,33 @@ div.pianoTop {
 }
 
 div.pianoKeys {
-	width: 1024px;
-	margin-left: auto;
-	margin-right:auto;
-	padding: 0px;
-	cursor: pointer;
+    width: 1024px;
+    margin-left: auto;
+    margin-right:auto;
+    padding: 0px;
+    cursor: pointer;
 }
 
 div.key {
-	background-color: #FFF;
-	float: left;
-	width: 90px;
-	height: 400px;
-	float: left;
-	margin: 0px;
-	border: 1px solid #666666;
-	color: #666666;
+    background-color: #FFF;
+    float: left;
+    width: 90px;
+    height: 400px;
+    float: left;
+    margin: 0px;
+    border: 1px solid #666666;
+    color: #666666;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 -10px 2px 0 #888888 inset, 0 -60px 40px 10px #EEEEEE inset;
 } 
 
 div.sharpText {
-	bottom: -200px;
+    bottom: -200px;
 }
 
 div.keyboardText {
-	width: 100%;
-	text-align: center;
+    width: 100%;
+    text-align: center;
     font-size: 30px;
     position: relative;
 }  
@@ -107,8 +94,8 @@ div.keyText {
 }
 
 div.nextNote {
-	color: #EB3C00 !important;
-	background-color: #DCDCDC !important;
+    color: #EB3C00 !important;
+    background-color: #DCDCDC !important;
 }
 
 .keySelected {
@@ -116,159 +103,69 @@ div.nextNote {
 }  
 
 .sharpSelected {
-	box-shadow: 0 0 6px 7px #303030 inset, 0 -5px #F7F7F7 inset !important;
+    box-shadow: 0 0 6px 7px #303030 inset, 0 -5px #F7F7F7 inset !important;
 }
 
 div.sharp {
-	background-color: #111;
-	position: absolute;
-	float: left;
-	width: 60px;
-	height: 250px;
-	margin-left: -16px;
-	margin-right: -16px;
-	z-index: 2;
-	box-shadow: rgb(48, 48, 48) 0px -9px 10px 9px inset, rgb(247, 247, 247) 0px -15px 0px 0px inset;
-	border: 1px solid black;
-	border-radius: 0 0 5px 5px;
-	color: #666666;
+    background-color: #111;
+    position: absolute;
+    float: left;
+    width: 60px;
+    height: 250px;
+    margin-left: -16px;
+    margin-right: -16px;
+    z-index: 2;
+    box-shadow: rgb(48, 48, 48) 0px -9px 10px 9px inset, rgb(247, 247, 247) 0px -15px 0px 0px inset;
+    border: 1px solid black;
+    border-radius: 0 0 5px 5px;
+    color: #666666;
 }
 
 div.sharpC {
-	margin-left: 60px;
+    margin-left: 60px;
 }
 
 div.sharpD {
-	margin-left: 155px;
+    margin-left: 155px;
 }
 
 div.sharpF {
-	margin-left: 335px;
+    margin-left: 335px;
 }
 
 div.sharpG {
-	margin-left: 430px;
+    margin-left: 430px;
 }
 
 div.sharpA {
-	margin-left: 520px;
+    margin-left: 520px;
 }
 
 div.sharpC1 {
-	margin-left: 705px;
+    margin-left: 705px;
 }
 
 div.sharpD1 {
-	margin-left: 800px;
+    margin-left: 800px;
 }
 
 .spanAuto {
-	margin: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
-	float: left;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
 }
 
 .span200 {
-	width: 200px;
+    width: 200px;
 }
 
 .span230 {
-	width: 230px;
+    width: 230px;
 }
 
 .span50p {
-	width:50%;
-	float: left;
-}
-
-div.info {
-	margin: 5px;
-	border: thin solid #000;
-	padding-top: 15px;
-	height: 75px;
-	font-size: 50px;
-	padding-left: 5px;
-}
-
-
-.songOption {
-    background: none repeat scroll 0 0 #3A3A3A;
-    border: 1px solid #CCCCCC;
-    border-radius: 0 0 0 0;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-    color: #333333;
-    display: block;
-    position: relative;
-    transition: transform 0.2s ease 0s;
-    padding: 4px;
-    height: 100px;
-    margin-top: 10px;
-}
-
-.songOption:hover {
-    color: #333333;
-    text-decoration: none;
-    transform: scale(1.04);
- }
- 
- span.notice {
-	margin-top: 10px;
-    background: none repeat scroll 0 0 #EB3C00;
-    border-radius: 50% 50% 50% 50%;
-    color: #FFFFFF;
-    display: inline-block;
+    width:50%;
     float: left;
-    font-size: 15px;
-    font-weight: bold;
-    height: 32px;
-    line-height: 30px;
-    margin-right: 10px;
-    text-align: center;
-    width: 30px;
 }
-
-hr {
-    border-bottom: 0 none #CCCCCC;
-    border-color: #CCCCCC;
-}
-
-h3 {
-	font-family: 'Lato',sans-serif;
-	color: #AAAAAA;
-	font-size: 12px;
-}
-
-.btn-red {
-	background-color: #006DCC;
-    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-}
-.btn {
-    border-radius: 3px 3px 3px 3px;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
-    display: inline-block;
-    font-size: 13px;
-    line-height: 18px;
-    margin-bottom: 0;
-    padding: 4px 10px;
-    text-align: center;
-    vertical-align: middle;
-     margin-left: 0;
-}
-
-.red {
-	color: #CC0000;
-}
- 
 
