@@ -10,7 +10,8 @@ To get turn the piano into a game we want to
 
 We should create a cool panel on top of our piano to enable these festures
 
-![Image](../blob/master/piano-game.png?raw=true)
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/piano-game.png?login=noelking&token=e3573361872dca184dca5ebeb8df868e "Piano Rock Star")
+
 
 ````css
 
