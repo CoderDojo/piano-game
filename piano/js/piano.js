@@ -5,7 +5,6 @@ var keyboard;
 function setup() {
 	createKeys();
 	document.onkeydown = handleKeyboardClick;
-	setupGame();
 }
 
 function createKeys() {
