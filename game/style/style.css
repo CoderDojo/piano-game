@@ -167,8 +167,6 @@ div.sharpD1 {
 
 .spanAuto {
 	margin: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
 	float: left;
 }
 
@@ -195,10 +193,9 @@ div.info {
 }
 
 
-.songOption {
-    background: none repeat scroll 0 0 #3A3A3A;
+.gamePanel {
+    background: #3A3A3A;
     border: 1px solid #CCCCCC;
-    border-radius: 0 0 0 0;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
     color: #333333;
     display: block;
@@ -209,9 +206,7 @@ div.info {
     margin-top: 10px;
 }
 
-.songOption:hover {
-    color: #333333;
-    text-decoration: none;
+.gamePanel:hover {
     transform: scale(1.04);
  }
  

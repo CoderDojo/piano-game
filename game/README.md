@@ -13,10 +13,9 @@ We should create a cool panel on top of our piano to enable these festures
 ![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/piano-game.png?login=noelking&token=e3573361872dca184dca5ebeb8df868e "Piano Rock Star")
 
 
-## Add songs to the game
+## Create the game section on the page
 
-Lets get started with styling the song loader, to get started you will need to add a new __div__ for the
-the game panel, we will give it css style of __gameDiv__ so add a class attribute to with the __gameDiv__ value.
+we will give it css style of __gameDiv__ so add a class attribute to with the __gameDiv__ value.
 
 ````html
 
@@ -64,6 +63,198 @@ div.gameDiv {
 
 ````
 
+## Add songs to the game
+
+On the very right of the game section we see the play note section which look like this
+
+
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/play-note.png?login=noelking&token=e3573361872dca184dca5ebeb8df868e "Piano Rock Star")
+
+We not need to add the HTML and CSS to display this panel so lets get started, what HTML tag should we use?  Yes you are right __div__ tag so lets go and create that div just inside the 
+__gameDiv__
+
+__NOTE__ Remember to create the closing div tag as well
+
+
+````html
+
+<div class="gameDiv">   
+                <div>
+
+                </div>
+````
+
+Now lets add some styling inside the __class__ attribute.  Can you add three styles
+* songOption
+* spanAuto
+* span230
+
+We create different styles so they can shared in different ares of the website, it is good standard to create small styles classes which can be reused
+
+The class can take multiple styles as long as you seperate them by a space
+
+````html
+
+<div class="gameDiv">
+
+    <div class="gamePanel spanAuto span230">
+                    
+                </div>      
+
+````
+
+Now lets add the style for this div, with the following aims
+
+#### gamePanel style
+* Set the background to #3A3A3A
+* Add a border of type solid, width 1px and color #CCCCCC;
+* Add a box shadow with color rgba(0, 0, 0, 0.075);
+* Add text folor of #333333;
+* Display block
+* Set the position to relative
+* Set the transistion to .02s with each of 0s
+* Set padding on the div to 4px
+* Add a margin top of 10px
+
+````css
+
+.gamePanel {
+    background: #3A3A3A;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: #333333;
+    display: block;
+    position: relative;
+    transition: transform 0.2s ease 0s;
+    padding: 4px;
+    height: 100px;
+    margin-top: 10px;
+}
+````
+
+Now refresh your page and is it looking like your div? not yet well we have more styling to do
+
+
+#### Add hover for the song option
+
+One cool feature that can be added in CSS is __hover__ so when you put the mouse over a section of a screen it can cause the style to change.  To do this 
+you use the style __class__ in our case __gamePanel__ and then put __:hover__ after it.  This is now the style that will appear once the mouse is over this 
+section.
+
+Lets make the __div__ a little bigger when the mouse appears over the sections of its feels like 3D
+
+````css
+.songOption:hover {
+    transform: scale(1.04);
+ }
+````
+
+
+#### spanAuto style
+
+Now lets style the spanAuto
+* Set margin of 10px
+* Set the float to left
+
+
+````css
+.spanAuto {
+    margin: 10px;
+    float: left;
+}
+````
+
+#### span230 style
+
+There is one important property we have not set yet? Yes its the width
+* Set the width to 230px
+
+````css
+.span230 {
+    width: 230px;
+}
+````
+#### Style inside the song div
+
+Would you agree we are slitting the div in half 
+* First half with bullet > and Play note message
+* Second hand displaying the note
+
+Well its now time to add the notice div for the message, add a new div with span50p style
+* Add new div with class of __span50p__
+* Add new span with class __notice__  and text __>__
+* Add h3 with text __Play Note__
+* Add hr tag
+* Close div tag
+
+````html
+<div class="gameOption spanAuto span230">
+        <div class="span50p">
+            <span class="notice">></span>
+                <h3>Play Note</h3>
+            <hr/>
+            </div>
+
+````
+
+Great refresh the page, how does this look? not great right? Well we now need to style it.  First lets handle the __span50p__ style in style.css
+* We want the __width__ to be __50%__
+* Set the __float__ to __left__ 
+
+````css
+.span50p {
+    width:50%;
+    float: left;
+}
+````
+
+Great its now time to style the notice, which adds the orange section with __>__ bullet
+
+
+````css
+ span.notice {
+    margin-top: 10px;
+    background: none repeat scroll 0 0 #EB3C00;
+    border-radius: 50% 50% 50% 50%;
+    color: #FFFFFF;
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: center;
+    width: 30px;
+}
+```` 
+
+The div should now look like this
+
+
+````html
+
+      <div class="gameOption spanAuto span230">
+        <div class="span50p">
+            <span class="notice">></span>
+                <h3>Play Note</h3>
+            <hr/>
+            </div>
+            <div class="span50p">
+                <div id="note" class="info"></div>
+            </div>
+        </div>
+    </div>
+````
+
+
+## Add songs to the game
+
+Lets get started with styling the song loader, would you agreed  the song panel is inside the game div?  Lets see if we can build the play song __div__ to look like this 
+
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/select-song.png?login=noelking&token=e3573361872dca184dca5ebeb8df868e "Piano Rock Star")
+
+
 The first panel we want to add to our game is the load song panel, this panel should
 * Have message tell players to __Select Song__
 * Have a drop down we can load songs into 
@@ -107,6 +298,8 @@ So lets style this panel in the style.css and we want to set
 
 
 ````
+
+Now that we have styled this 
 
 ````html
 	<div class="songOption spanAuto">
