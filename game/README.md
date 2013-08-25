@@ -68,7 +68,7 @@ div.gameDiv {
 On the very right of the game section we see the play note section which look like this
 
 
-![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/play-note.png?login=noelking&token=e3573361872dca184dca5ebeb8df868e "Piano Rock Star")
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/play-note.png "Piano Rock Star")
 
 We not need to add the HTML and CSS to display this panel so lets get started, what HTML tag should we use?  Yes you are right __div__ tag so lets go and create that div just inside the 
 __gameDiv__
