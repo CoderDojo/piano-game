@@ -93,10 +93,6 @@ div.sharpText {
 	bottom: -200px;
 }
 
-div.keyboardInfo {
-    background-color: gray;    
-    font-weight: bold;
-}
 
 div.keyboardText {
 	width: 100%;
@@ -268,5 +264,10 @@ h3 {
 .red {
 	color: #CC0000;
 }
- 
+
+
+.keyboardInfo {
+    background: gray;    
+    font-weight: bold;
+}
 

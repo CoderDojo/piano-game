@@ -307,22 +307,246 @@ div.info {
 
 ## Add songs to the game
 
-Lets get started with styling the song loader, would you agreed  the song panel is inside the game div?  Lets see if we can build the play song __div__ to look like this 
+Now lets create and style the song loader, would you agreed the song panel is inside the game div?  Lets see if we can build the play song __div__ to look like this 
 
 ![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/select-song.png "Piano Rock Star")
 
-The first panel we want to add to our game is the load song panel, this panel should
+This panel should
 * Have message tell players to __Select Song__
 * Have a drop down we can load songs into 
 * A button to play the song
 
-For the panel we are going to us a div and style it with two styles __songOption__ and __spanAuto__ we will see 
-these later
+This panel is going to be very similar to the play note one we just created, so lets create add the following HTML
 
 ````html
-	<div class="songOption spanAuto">
-		
-	</div>
+	<div class="gamePanel spanAuto">
+        <span class="notice">></span>
+        <h3></h3>
+        <hr/>
+        
+     </div>
+````
+
+Now inside the __h3__ tags add the text __Select Song__ so we now look like this
+
+````html
+    <div class="gamePanel spanAuto">
+        <span class="notice">></span>
+        <h3></h3>
+        <hr/>
+        
+     </div>
+````
+
+Now create a new html __select__ tag, with an __option__ for __Select__, the select song html should now look like this
+
+
+````html
+    <div class="gamePanel spanAuto">
+        <span class="notice">></span>
+        <h3>Select Song</h3>
+        <hr/>
+        <select id="songs"><option>Select</option></select>
+     </div>
+````
+
+Great this looks really good, but dont have a button to start the game, lets add a __button__ with existing style classes
+* btn
+* btn-red
+
+* Give the button an __id__ of __playSong__
+
+The select song html should now look like this.
+
+````html
+    <div class="gamePanel spanAuto">
+        <span class="notice">></span>
+        <h3>Select Song</h3>
+        <hr/>
+        <select id="songs"><option>Select</option></select>
+        <button id="playSong" class="btn btn-red" type="submit" >Play Now!</button>
+     </div>
 ````
 
 
+## Add the Score 
+
+We want the score to appear right? like the play note section this is inside the __gameDiv__ , so we need to create a div that looks like this
+
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/score.png "Piano Rock Star")
+
+This panel should
+* Hightlight its the score panel
+* Have message tell players the __Score__
+
+Ok its great that this panel is very similar to the previous two see we can use their style and html code.  To get started create add the following html just like we did in previous sections
+
+
+````html
+   <div class="gamePanel spanAuto span230">
+    <div class="span50p">
+    <span class="notice">></span>
+        <h3></h3>
+    <hr/>
+    </div>
+    <div class="span50p">
+        <div id="scre" class="info red">0</div>
+    </div>
+</div>
+````
+
+Now inside the __h3__ tags add the text __Score__ so we now look like this
+
+````html
+   <div class="gamePanel spanAuto span230">
+    <div class="span50p">
+    <span class="notice">></span>
+        <h3>Score</h3>
+    <hr/>
+    </div>
+    <div class="span50p">
+        
+    </div>
+</div>
+````
+
+Now create a new __div__ tag to display the score with two style class of 
+* info
+* red
+
+````html
+   <div class="gamePanel spanAuto span230">
+    <div class="span50p">
+    <span class="notice">></span>
+        <h3>Score</h3>
+    <hr/>
+    </div>
+    <div class="span50p">
+        <div id="score" class="info red">0</div>
+    </div>
+</div>
+````
+
+To emhasise this is the score, we are going to set the text color red, so lets open style.css and add a new style for class red
+* Set the __color__ to __#CC0000__
+
+````css
+.red {
+    color: #CC0000;
+}
+````
+
+## Add the Keyboard helper 
+
+You would a keyboard helper to tell you what key to hit right? so we need to create a div that looks like this inside the __gameDiv__
+
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/keyboard-help.png "Piano Rock Star")
+
+This panel should
+* Hightlight its the keybooard panel
+* Have message tell players which key to hit
+
+Ok its great that this panel is very similar to the previous two see we can use their style and html code.  To get started create add the following html just like we did in previous sections
+
+
+````html
+<div class="gamePanel spanAuto span230">
+    <div class="span50p">
+    <span class="notice">></span>
+        <h3></h3>
+    <hr/>
+    </div>
+    <div class="span50p">
+    </div>
+</div>
+````
+
+Now inside the __h3__ tags add the text __Keyboard__ so we now look like this
+
+````html
+<div class="gamePanel spanAuto span230">
+    <div class="span50p">
+    <span class="notice">></span>
+        <h3>Keyboard</h3>
+    <hr/>
+    </div>
+    <div class="span50p">
+    </div>
+</div>
+````
+
+Now create a new __div__ tag to display the keyboard key with an __id__ of __keyboard__ and two style class of 
+* info
+* keyboardInfo
+
+````html
+ <div class="gamePanel spanAuto span230">
+    <div class="span50p">
+    <span class="notice">></span>
+        <h3>Keyboard</h3>
+    <hr/>
+    </div>
+    <div class="span50p">
+        <div id="keyboard" class="info keyboardInfo"></div>
+    </div>
+</div>
+````
+
+To emhasise this is the score, we are going to set the text color red, so lets open style.css and add a new style for class red
+* Set the __background__ to __gray__
+* Set the __font-weight__ to __bold__
+
+````css
+.keyboardInfo {
+    background: gray;    
+    font-weight: bold;
+}
+````
+
+Congratulations you have now created the game panels for Piano Rock Star.  Just to review your HTML should now look like this
+
+````html
+<div class="gameDiv">   
+    <div class="gamePanel spanAuto span230">
+        <div class="span50p">
+        <span class="notice">></span>
+            <h3>Play Note</h3>
+        <hr/>
+        </div>
+        <div class="span50p">
+            <div id="note" class="info"></div>
+        </div>
+    </div>      
+    <div class="gamePanel spanAuto">
+        <span class="notice">></span>
+        <h3>Select Song</h3>
+        <hr/>
+        <select id="songs"><option>Select</option></select>
+        <button id="playSong" class="btn btn-red" type="submit" 
+          name="play">Play Now!</button>
+    </div>
+    <div class="gamePanel spanAuto span230">
+        <div class="span50p">
+        <span class="notice">></span>
+            <h3>Score</h3>
+        <hr/>
+        </div>
+        <div class="span50p">
+            <div id="score" class="info red">0</div>
+        </div>
+    </div>
+    
+    <div class="gamePanel spanAuto span230">
+        <div class="span50p">
+        <span class="notice">></span>
+            <h3>Keyboard</h3>
+        <hr/>
+        </div>
+        <div class="span50p">
+            <div id="keyboard" class="info keyboardInfo"></div>
+        </div>
+    </div>
+    
+</div>
+
+````
