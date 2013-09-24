@@ -7,6 +7,7 @@ function Piano(game) {
 
 	this.createKeyBoard = createKeyBoard;
 	this.setup = setup;
+	this.handleKeyboardClick = handleKeyboardClick;
 
 	function setup() {
 		createKeyBoard(); //creates the keyboard
@@ -23,7 +24,6 @@ function Piano(game) {
 	}
 
 	function handleKeyboardClick(e) {
-		console.log("######## ");
 		var code = (e.keyCode ? e.keyCode : e.which);
 		var keyCode = new KeyCode();
 		var keyHit = keyCode.getCharacter(code);

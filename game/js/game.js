@@ -44,15 +44,9 @@ function Game(keyboard) {
 	}
 
 	function loadTunes() {
-		jQuery.getJSON('js/tunes.json', function(data, textStatus) {
-			if (textStatus == "success") {
-				tunes = data;
-				loadSongsToScreen();
-			}
-			else {
-				alert("JSON non-success status for tunes: " + textStatus);
-			}
-		});
+		var tunesList = new Tunes();
+		tunes = tunesList.list;
+		loadSongsToScreen();
 	}
 
 	function loadSongsToScreen() {
