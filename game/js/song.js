@@ -1,4 +1,8 @@
-function Song(songDetails, timeout) {
+/**
+ * 
+ */
+function Song(songDetails, timeout, keyboard) {
+
 	var name = songDetails.name;
 	var notes = songDetails.notes;
 	var currentNoteNumber = 0;
@@ -34,16 +38,20 @@ function Song(songDetails, timeout) {
 			this.currentNote = notes[currentNoteNumber].note;
 			this.currentKey =  notes[currentNoteNumber].keyboard;
 			if(currentNote != "" && currentKey != "") {
-				currentMusicKey = keyboard.getKey(currentNote).getCurrentNote();
-				currentMusicKey.addClass('nextNote');
-				setNoteColor();
-				notePanel.text(currentNote);
-				keyboardPanel.text(currentKey);
+				displayNoteOnScreen();
 				currentNoteNumber++;
 				setTimeout(displayNextNote, timeout);
 				setTimeout(removeKeySupport, 800);
 			}
 		}
+	}
+
+	function displayNoteOnScreen() {
+		currentMusicKey = keyboard.getKey(currentNote).getCurrentNote();
+		currentMusicKey.addClass('nextNote');
+		setNoteColor();
+		notePanel.text(currentNote);
+		keyboardPanel.text(currentKey);
 	}
 	
 	function removeKeySupport() {

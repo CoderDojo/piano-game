@@ -60,7 +60,7 @@ div.logoDiv {
 
 
 div.pianoTop {
-	background: url("../images/top.jpg") no-repeat scroll center top / cover #000000;
+	background: url("../images/top.jpg") repeat-x scroll #000000;
     margin-bottom: 0;
     padding-bottom: 50px;
     padding-top: 30px;

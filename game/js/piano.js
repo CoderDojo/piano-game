@@ -1,23 +1,36 @@
-window.onload = setup;
+/**
+ *
+ */
+function Piano(game) {
 
-var keyboard;
+	var keyBoard;
 
-function setup() {
-	createKeys();
-	document.onkeydown = handleKeyboardClick;
-	setupGame();
-}
+	this.createKeyBoard = createKeyBoard;
+	this.setup = setup;
+	this.handleKeyboardClick = handleKeyboardClick;
 
-function createKeys() {
-	keyboard = new KeyBoard();
-	keyboard.load();
-}
+	function setup() {
+		createKeyBoard(); //creates the keyboard
+		createGame(); //creates the game = fun
+	}
 
-function handleKeyboardClick(e) {
-	var code = (e.keyCode ? e.keyCode : e.which);
-	var keyCode = new KeyCode();
-	var keyHit = keyCode.getCharacter(code);
+	function createKeyBoard() {
+		keyBoard = new KeyBoard();
+		keyBoard.load();
+	}
+
+	function createGame() {
+		game = new Game(keyBoard);
+	}
+
+	function handleKeyboardClick(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		var keyCode = new KeyCode();
+		var keyHit = keyCode.getCharacter(code);
 		
-	var musicKey = keyboard.getKey(currentNote);
-	musicKey.clickNote();	
+		if(game && game.isGameRunning()) {
+			game.handleKeyboardClick(keyHit)
+		}
+	}
+
 }
