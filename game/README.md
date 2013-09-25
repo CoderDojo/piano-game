@@ -735,3 +735,148 @@ function Game(keyboard) {
     }
 }
 ````
+
+### Lets load the songs into the play list
+
+Great you have written your first part of the game code, but not seen anything happen on the screen yet, its time to start having more fun.  Remember we developed a panel
+to display the game songs.  Well its now time to load these
+
+![alt text](https://raw.github.com/CoderDojo/piano-game/master/game/doc-files/play-note.png "Piano Rock Star")
+
+To get started we need to create a new function called __loadTunes__, this will be created just below the __setupGame()__ function.  so how do you create a function again?
+* Start with the word __function__
+* Space then the function name __loadTunes__
+* Now round brackets __()__ and then opening function bracket __{__
+* Hit Enter twice and the add closing function bracket __}__
+
+
+````javascript
+    function loadTunes() {
+        
+    }
+
+````
+Lets start coding this function by creating a new tunes variable with from the __Tunes__ object.
+
+
+````javascript
+    function loadTunes() {
+        var tunes = new Tunes();
+    }
+
+````
+
+Sure go ahead a talk a look at __tunes.js__, you will see the songs available inside this file along with the music note and the corresponding key.  
+
+Inside tunes.js there is an object called __Tunes__ this object has one variable called __list__ which has the tunes.
+
+Now extend the __loadTunes__ function to set the __tunesList__ to your new variable __tunes__ and retrieve the __list__ of tunes.
+
+
+````javascript
+    function loadTunes() {
+        var tunes = new Tunes();
+        tunesList = tunes.list;
+    }
+
+````
+
+You now need to call this function from the __setupGame__function so add the call to the last line of that function.
+
+````javascript
+function setupGame() {
+        songsDropDown = jQuery("#songs");
+        scorePanel = jQuery("#score");
+        score = 0;
+        loadTunes();
+    }
+````
+
+Now its time to add this function called __loadSongsToScreen__ that will 
+* navigate through the list of tunes
+* get their name
+* display it on the screen 
+
+So get started with creating a function called __loadSongsToScreen__
+
+````javascript
+    function loadSongsToScreen() {
+    
+    }
+````
+
+### FOR LOOPS
+A __for__ loop allows you to preform a set of actions a dedicated number of times.  In 
+our example we want a the __for__ loop to navigate through our list and add the name to the screen.
+
+To write a __for__ loop
+* Start with the word __for__
+* Add round brackets __()__
+* Inside the round bracket start with assigning the first number for a variable __var currentSongNumber = 0; __ closing with a semi colan __;__
+* Now add the evaluation, in our case the currentSongNumber is less than the max in the element in the list __currentSongNumber < tunesList.length;__ and close with semicolan
+* We will need to navigate through each song, so if __currentSongNumber__ represents the current song number then we must increase this every time.
+* Now add open brackets __{__
+* Hit enter twice and add closing bracket __{__
+
+The __for__ loop should now look like this
+
+````javascript
+    for(var currentSongNumber = 0; currentSongNumber < tunesList.length; currentSongNumber = currentSongNumber+1) {
+            
+    } 
+````
+In between the brackets we will add the code to get the name and add it to the screen.  
+The first line of code will require us to create a variable for the sone name for current Song Number, this can be done a list by using the list variable name __tunesList__ the use square brackets __[]__ then inside the square brakets add the current song number of the song you want to use.  From the song you can retrieve the name by adding a dot __.__ then the variable name __name__
+
+
+````javascript
+var songName = tunesList[currentSongNumber].name;
+````
+
+The __loadSongsToScreen__ function should now look like this
+
+````javascript
+
+    function loadSongsToScreen() {
+        for(var currentSongNumber = 0; currentSongNumber < tunesList.length; currentSongNumber = currentSongNumber+1) {
+            var songName = tunesList[currentSongNumber].name;
+            
+        } 
+    }
+````
+
+Now lets create a function just under the __loadSongsToScreen__ function that will add an individual song name to the screen.  The function should be called __appendOption__ and take in two parameters
+* First is the song name you want to see on the screen
+* Second is the currentSongNumber, the location this song is in the tune list
+
+Create a function to look like this
+
+````javascript
+    function appendOption(songName, songVal) {
+       
+    }
+````
+
+Inside this function you want to add the HTML code so it appears on the screen, you may remember 
+* adding ````<select> ```` tag for the songs
+* in the __setupGame__ function retrieve the __songsDropDown__ using its songs id
+
+We can simply add HTML to this __songsDropDown__, to add an option to __select__ tag, the tag name is __option__, you can add
+* __value__ 
+* __display text__
+
+To append the HTML to the __songsDropDown__ call ```` songsDropDown.append() ````, inside the brackets you can add the html, in our case
+
+````html <option value="' +songVal+'">'+
+            songName +'</option> ````
+
+The __appendOption__ function should now look like this
+
+````javascript
+    function appendOption(songName, songVal) {
+       songsDropDown.append('<option value="' +songVal+'">'+
+            songName +'</option>');
+    }
+````
+ 
+
