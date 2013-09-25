@@ -1,7 +1,7 @@
 
 function Game(keyboard) {
 			
-	var tunes;
+	var tunesList;
 	var song;
 	var songsDropDown;
 	var score ;
@@ -21,14 +21,14 @@ function Game(keyboard) {
 	}
 
 	function loadTunes() {
-		var tunesList = new Tunes();
-		tunes = tunesList.list;
+		var tunes = new Tunes();
+		tunesList = tunes.list;
 		loadSongsToScreen();
 	}
 
 	function loadSongsToScreen() {
-		for(var currentSongNumber = 0; currentSongNumber < tunes.length; currentSongNumber++) {
-			var songName = tunes[currentSongNumber].name;
+		for(var currentSongNumber = 0; currentSongNumber < tunesList.length; currentSongNumber = currentSongNumber+1) {
+			var songName = tunesList[currentSongNumber].name;
 			appendOption(songName, currentSongNumber);
 		} 
 	}
@@ -53,7 +53,7 @@ function Game(keyboard) {
 		playButton.click(function() {
 			var songOption = jQuery("#songs option:selected");
 			var songValue = songOption.val();
-			song = new Song(tunes[songValue], 1000, keyboard);
+			song = new Song(tunesList[songValue], 1000, keyboard);
 			score = 0;
 			scorePanel.text(score);
 			song.play();
