@@ -550,3 +550,188 @@ Congratulations you have now created the game panels for Piano Rock Star.  Just 
 </div>
 
 ````
+
+## Game Time - JavaScript
+
+To get started we have created a new JavaScript Object you are going to need to build to complete the game, this object is the __Game__ itself.  
+
+### Object
+A JavaScript Object is a code representation of an REAL THING or ENTITY.  In our game we had serveral objects
+* Piano
+* Keyboard
+* Tunes
+* MusicKey
+
+You can easily visual what these are on the screen.  An object can have functions which like the Music Key has a play function to play the note.  They can also have variables values like the piano has a keyboard.
+
+
+### To create a JavaScript Object 
+
+You start with the word __function__ followed by the __object name__ in our case Game.  If you would like to pass any additionaly information into the object you can do that inside circular brackets with a parameter __()__.  Inside the brackets you can add some 
+variable that will be used inside the Game object, as we need to know __keyboard__ information this is passed in
+
+````javascript
+function Game(keyboard) {
+        
+}
+````
+
+The Game object along with the __isGameRunning__ are already setup in game.js as they are being used by piano.js, we will now start adding the rest of the required code for our game.
+
+````javascript
+function Game(keyboard) {
+
+    this.isGameRunning = isGameRunning;
+    
+    function isGameRunning() {
+
+    }
+
+}
+````
+
+### Functions
+Functions perform single actions for you in the code, in this example our function checks if the game is running.  Dont worry we will add the code later
+
+To add a function
+* Start with the word __function__
+* Then add the function name in our case __isGameRunning__
+* Then add circular brackets __()__
+* Open the function code with open bracket __{__
+* Close the function code with close bracket __}__, add this a few lines down
+
+__NOTE__ Later we will see how to pass paramters to your function between __()__
+
+### Sharing functions
+
+Functions be default inside Java Script objects can only be called by other functions inside that JavaScript Object.  But some functions you will want to be called by other code for example when the keyboard is hit on the piano you want to tell the game right? Ye so the game can calculate if the correct key was hit and update the score.
+
+To share a function use 
+* Add __this__ which means the current object in our case the Game
+* Then add __.__ and the name of the function __isGameRunning__
+* Then add __=__ equals the function name __isGameRunning__
+
+Just like below
+
+```` this.isGameRunning = isGameRunning; ````
+
+Here you can see the code to share a function, and the creation of the same function
+
+````javascript
+function Game(keyboard) {
+
+    this.isGameRunning = isGameRunning;
+    
+    function isGameRunning() {
+
+    }
+
+}
+````  
+
+Before we get started with the code lets review what we want our game to do
+* Setup the game
+* Loads songs
+* Display notes
+* Display computer keyboard key
+* Manage scoring
+
+### Setup the game
+
+We now need to setup the game, so remember when we worked with the HTML we allow users to select a song for their game
+and we added a score panel for the score.  So lets get started with adding a variable for each of these
+* songs drop down - to provide a drop down list of songs
+* score - to hold the score value
+* score panel - to display the score on the screen
+
+
+#### Variable
+A variable is something we can store values against such as score, of something we want to change such as the scorePanel. In JavaScript to create a variable
+
+* Start with the word __var__
+* Then add the variable name in our case __score__ (NOTE: no spaces in the variable name) 
+* Then close it with a semicolan __;__
+
+Later we will see assigining a value to a variable, now lets add our 3 variables like so
+
+```` var score; ````
+
+````javascript
+function Game(keyboard) {
+            
+    var songsDropDown;
+    var score;
+    var scorePanel;
+
+    this.isGameRunning = isGameRunning;
+    
+    function isGameRunning() {
+
+    }
+}
+````
+
+Now lets setup the game with a new function called __setupGame__, we always want the function name to be clear, so function name should descripe what the function will do.
+
+Inside the function we want to 
+* Get the songs drop down from the HTML code
+* Get the score panel from the HTML code
+* Set the starting score value
+
+So you may be asking yourself why do we need access to the web page HTML code?  Well if you want to changing anything visual on the screen you will need to access parts of the webpage to do that.
+
+### JQuery
+JQuery is a javascript framework, its provides functions to make working with JavaScript easier.  We will use it in a very small way to gain access to parts of our webpage.  To get started we will look for the songs __select__ element.  Remember the __id__ of the __select__ element is __songs__.  To get JQuery to return this HTML code
+* Set the variable your are assigning it to __songsDropDown__ and then add __equals__
+* Now add __jQuery__ with round __()__ brackets
+* Inside the round brackets __()__ add __#__ to find the value based on id of HTML element in our case __songs__
+* Finished with __;__
+* Should now look like this ```` songsDropDown = jQuery("#songs"); ````
+
+We will now need to find the HTML elememts for __songsDropDown__ and __scorePanel__ inside the __setupGame()__ function
+* __songsDropDown = jQuery("#songs");__
+* __scorePanel = jQuery("#score");__
+
+Our game.js will now look like this
+
+````javascript
+function Game(keyboard) {
+            
+    var songsDropDown;
+    var score;
+    var scorePanel;
+
+    this.isGameRunning = isGameRunning;
+    
+    setupGame();
+
+    function setupGame() {
+        songsDropDown = jQuery("#songs");
+        scorePanel = jQuery("#score");
+    }
+}
+````
+
+Its time to add the __score__, would you agree the start value for the score is __0__, to do this simply
+* variable name __score__ followed by __equals__ and then the value __0__ and finish with __;__
+
+Set the score to zero inside the __setupGame()__ function, just below where you set the __scorePanel__
+
+````javascript
+function Game(keyboard) {
+            
+    var songsDropDown;
+    var score;
+    var scorePanel;
+
+    this.isGameRunning = isGameRunning;
+    
+    setupGame();
+
+    function setupGame() {
+        songsDropDown = jQuery("#songs");
+        scorePanel = jQuery("#score");
+        score = 0;
+    }
+}
+````
