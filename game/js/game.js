@@ -51,26 +51,29 @@ function Game(keyboard) {
 	function handlePlaySong() {
 		var playButton = jQuery("#playSong");
 		playButton.click(function() {
-			var songOption = jQuery("#songs option:selected");
-			var songValue = songOption.val();
-			song = new Song(tunesList[songValue], 1000, keyboard);
-			score = 0;
-			scorePanel.text(score);
-			song.play();
+			playSong();			
 		});
+	}
+
+	function playSong() {
+		var songOption = jQuery("#songs option:selected");
+		var songValue = songOption.val();
+		song = new Song(tunesList[songValue], 1000, keyboard);
+		score = 0;
+		scorePanel.text(score);
+		song.play();
 	}
 
 	function handleKeyboardClick(keyHit) {
 
-			var currentNote = song.note();
-			var keySelect = song.getCurrentKey();
+		var currentNote = song.note();
+		var musicKey = song.getCurrentKey();
+		var keyboardKey = keyboard.getKey(currentNote);
 
-			var musicKey = keyboard.getKey(currentNote);
-
-			if(keyHit == keySelect) {
-				musicKey.clickNote();
-				score = score + 10;
-				scorePanel.text(score);
-			}
+		if(keyHit == keyboardKey) {
+			musicKey.clickNote();
+			score = score + 10;
+			scorePanel.text(score);
+		}
 	}
 }
