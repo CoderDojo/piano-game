@@ -1139,7 +1139,7 @@ Create an __if__ condition that checks if the __keyHit__ equals the __keyboardKe
 ````
 
 
-* If they do match, we should play the note
+#### If they do match, we should play the note
 
 To play the note the __musicKey__ variable has a function called __clickNote()__ which should be added inside the __if__ condition.
 
@@ -1157,7 +1157,7 @@ To play the note the __musicKey__ variable has a function called __clickNote()__
     }
 ````
 
-* Then add 10 to the score
+#### Then add 10 to the score
 
 To add 10 to the score we will just increase the variable value by 10.  
 
@@ -1176,7 +1176,7 @@ To add 10 to the score we will just increase the variable value by 10.
     }
 ````
 
-* Then display the new score 
+#### Then display the new score 
 
 To display the new score we will need to update the __scorePanel__ usiung its __text__ function with the __score__ value as a parameter.
 
