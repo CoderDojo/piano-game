@@ -805,7 +805,7 @@ So get started with creating a function called __loadSongsToScreen__
     }
 ````
 
-### FOR LOOPS
+### for loop
 A __for__ loop allows you to preform a set of actions a dedicated number of times.  In 
 our example we want a the __for__ loop to navigate through our list and add the name to the screen.
 
@@ -825,7 +825,11 @@ The __for__ loop should now look like this
             
     } 
 ````
-In between the brackets we will add the code to get the name and add it to the screen.  
+In between the brackets we will add the code to get the name and add it to the screen. 
+
+### List note:
+The first element in the list is zero, not one.
+
 The first line of code will require us to create a variable for the sone name for current Song Number, this can be done a list by using the list variable name __tunesList__ the use square brackets __[]__ then inside the square brakets add the current song number of the song you want to use.  From the song you can retrieve the name by adding a dot __.__ then the variable name __name__
 
 
@@ -867,7 +871,7 @@ We can simply add HTML to this __songsDropDown__, to add an option to __select__
 
 To append the HTML to the __songsDropDown__ call ```` songsDropDown.append() ````, inside the brackets you can add the html, in our case
 
-````html <option value="' +songVal+'">'+
+```` <option value="' +songVal+'">'+
             songName +'</option> ````
 
 The __appendOption__ function should now look like this
@@ -879,4 +883,319 @@ The __appendOption__ function should now look like this
     }
 ````
  
+We now need to call the __appendOption__ function from the __loadSongsToScreen__.
+
+````javascript
+
+    function loadSongsToScreen() {
+        for(var currentSongNumber = 0; currentSongNumber < tunesList.length; currentSongNumber = currentSongNumber+1) {
+            var songName = tunesList[currentSongNumber].name;
+            appendOption(soneName, currentSongNumber);
+        } 
+    }
+````
+
+### Handle the playing of the song
+
+To play the game the user selects a song and they are scored based on how well the song
+is played.  
+
+Create a function to handle this called __handlePlaySong__. We need this function to
+* get the play button
+* setup the button to play the song on click 
+
+````javascript
+    function handlePlaySong() {
+ 
+    }
+````
+
+We need to get the playSong button and this can be retrieving the object with jquery function using the element __id__ which is __playSong__.  Assign the button to a new
+variable called __playButton__.
+
+````javascript
+    var playButton = jQuery("#playSong");
+````
+
+Now we want to add the functionality for when the button is clicked.  To do this you call __click__ function on the __playButton__ and tell it to play the song by calling the __playSong__
+
+````javascript
+    function handlePlaySong() {
+        var playButton = jQuery("#playSong");
+        playButton.click(function() {
+            playSong();         
+        });
+    }
+````
+
+### Playing song
+
+To play the song we need to 
+* Get the selected song from the dropdown
+* Get the selected value
+* Create the song from the value
+* Set the score to zero
+* Set the score panel to zero
+* Play the song
+
+Get started by creating the __playSong()__ function
+````javascript
+    function playSong() {
+        
+    }
+````
+
+#### Get the selected song from the dropdown
+We will create a new variable called songOption which will get the selected song from the drop down.  This can be done by using the
+* __jQuery__ function 
+* Followed by the id with hash __#songs__
+* Then you can add __option:selected__ to return the choosen value
+
+The code here takes the choosen value and assigns it to a variable __songOption__
+
+````javascript
+    function playSong() {
+        var songOption = jQuery("#songs option:selected");
+    }
+````
+
+#### Get the selected value
+
+Now we need to get the song value (remember we set this to the number in the __loadSongsToScreen__ function).  To get the value all you need to do is call the __val()__ function on the __songOption__ variable.
+
+Assign the __songOption.val()__ value to a new variable called __songValue__
+
+````javascript
+    function playSong() {
+        var songOption = jQuery("#songs option:selected");
+        var songValue = songOption.val();
+    }
+````
+
+#### Create the song from the value
+
+We can now create teh song by
+* retrieving the tune from the __tunesList__ the __songValue__ ```` tunesList[songValue] `````
+* setting the song timeout be 1000 milli-seconds between note
+* set the keyboard into the song
+* Create the new variable called __song__ using the __Song__ object already created for you.
+
+````javascript
+    function playSong() {
+        var songOption = jQuery("#songs option:selected");
+        var songValue = songOption.val();
+        song = new Song(tunesList[songValue], 1000, keyboard);
+    }
+````
+
+#### Set the score to zero
+
+Set the score variable to zero by creating a shared variable at the top and then updating the variable value in the __playSong__ function.  We created a shared variable earlier so more than 1 function can use it.  All our share variables are at the top of the screen.
+
+Now inside the __playSong__ function set this to __0__
+
+````javascript
+    function playSong() {
+        var songOption = jQuery("#songs option:selected");
+        var songValue = songOption.val();
+        song = new Song(tunesList[songValue], 1000, keyboard);
+        score = 0;
+    }
+````
+
+#### Set the score panel to zero
+
+Update the scorePanel to have the zero __text__ value
+
+````javascript
+    function playSong() {
+        var songOption = jQuery("#songs option:selected");
+        var songValue = songOption.val();
+        song = new Song(tunesList[songValue], 1000, keyboard);
+        score = 0;
+        scorePanel.text(score);
+    }
+````
+
+* Play the song
+
+The song variable we create early has a function called __play()__ which plays the nodes on the screen.  Can you now add this the play functionality to this function using the __song__ variable.
+
+````javascript
+    function playSong() {
+        var songOption = jQuery("#songs option:selected");
+        var songValue = songOption.val();
+        song = new Song(tunesList[songValue], 1000, keyboard);
+        score = 0;
+        scorePanel.text(score);
+        song.play();
+    }
+````
+
+### Is game running
+
+So why do we want to know if the game is running? Well the piano needs to know, if the game is playing the key information is sent to the game.  
+
+How do you know the game is running, well if the notes are playing? Lets create a function to handle this called isGameRunning.
+
+````javascript
+    function isGameRunning() {
+        
+    }
+````
+
+Get the current note from the song, but we have not defined the song yet, right
+
+````javascript
+    function isGameRunning() {
+        var currentNote = song.note();
+    }
+````
+
+Using the scorePanel
+
+````javascript
+    function isGameRunning() {
+        var currentNote = song.note();
+        //if current note is blank game not playing
+        if(currentNote == "") {
+            return false;
+        } else { //note value is not blank so game playing
+            return true;
+        }
+    }
+````
+
+### Handle the keyboard click
+
+Normally when the keyboard clicks in the piano it just plays a sound right, but when added the game the keyboard click got
+so much more important as we now need to
+* Get the current note
+* Get the keyboard key hit
+* Get the keyboard key for the current note
+* Check if the selected keyboard key and note keyboard key match
+* If they do match, we should play the note
+* Then add 10 to the score
+* Then display the new score
+
+To get stared create function called __handleKeyboardClick__ that takes in a parameter called __keyHit__
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+    }
+````
+
+#### Get the current note
+
+You can get the __currentNote from the __song__ object with function __note()__, so can you create a variable called __currentNote__ to retrieve this value
+
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+        var currentNote = song.note();
+    }
+````
+
+#### Get the keyboard key hit
+
+The current key for the note can be retrieved from the __song__ object __getCurrentKey()__ function, can you create a new variable called __musicKey__ to retrieve this value.
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+        var currentNote = song.note();
+        var musicKey = song.getCurrentKey();
+    }
+````
+
+#### Get the keyboard key for the current note
+
+The __keyboard__ object has a function called __getKey()__ which takes in the __currentNote__ as a paranter and wiull return keyboardKey for that note.
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+
+        var currentNote = song.note();
+        var musicKey = song.getCurrentKey();
+        var keyboardKey = keyboard.getKey(currentNote);
+
+    }
+````
+
+#### Check if the selected keyboard key and note keyboard key match
+
+Create an __if__ condition that checks if the __keyHit__ equals the __keyboardKey__
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+
+        var currentNote = song.note();
+        var musicKey = song.getCurrentKey();
+        var keyboardKey = keyboard.getKey(currentNote);
+
+        if(keyHit == keySelect) {
+            
+        }
+    }
+````
+
+
+* If they do match, we should play the note
+
+To play the note the __musicKey__ variable has a function called __clickNote()__ which should be added inside the __if__ condition.
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+
+        var currentNote = song.note();
+        var musicKey = song.getCurrentKey();
+        var keyboardKey = keyboard.getKey(currentNote);
+
+        if(keyHit == keySelect) {
+            musicKey.clickNote();
+        }
+
+    }
+````
+
+* Then add 10 to the score
+
+To add 10 to the score we will just increase the variable value by 10.  
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+
+        var currentNote = song.note();
+        var musicKey = song.getCurrentKey();
+        var keyboardKey = keyboard.getKey(currentNote);
+
+        if(keyHit == keySelect) {
+            musicKey.clickNote();
+            score = score + 10;
+        }
+
+    }
+````
+
+* Then display the new score 
+
+To display the new score we will need to update the __scorePanel__ usiung its __text__ function with the __score__ value as a parameter.
+
+````javascript
+    function handleKeyboardClick(keyHit) {
+
+        var currentNote = song.note();
+        var musicKey = song.getCurrentKey();
+        var keyboardKey = keyboard.getKey(currentNote);
+
+        if(keyHit == keySelect) {
+            musicKey.clickNote();
+            score = score + 10;
+            scorePanel.text(score);
+        }
+    }
+````
+
+## Congratulations
+
+Well done you have just developed Piano Rock Star, go time to do a full test and play against your friends to see who wins.  Be cool
 
