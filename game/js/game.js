@@ -70,8 +70,10 @@ function Game(keyboard) {
 		var musicKey = song.getCurrentKey();
 		var keyboardKey = keyboard.getKey(currentNote);
 
-		if(keyHit == keyboardKey) {
-			musicKey.clickNote();
+		console.log('clicking game ' +keyHit+' ' + musicKey);
+
+		if(keyHit == musicKey) {
+			keyboardKey.clickNote();
 			score = score + 10;
 			scorePanel.text(score);
 		}
