@@ -39,13 +39,16 @@ function Game(keyboard) {
 	}
 
 	function isGameRunning() {
-		var currentNote = song.note();
-		//if current note is blank game not playing
-		if(currentNote == "") {
-			return false;
-		} else { //note value is not blank so game playing
-			return true;
-		}
+		if(song) {
+			var currentNote = song.note();
+			//if current note is blank game not playing
+			if(currentNote == "") {
+				return false;
+			} else { //note value is not blank so game playing
+				return true;
+			}
+		} 
+		return false;
 	}
 
 	function handlePlaySong() {
@@ -65,15 +68,16 @@ function Game(keyboard) {
 	}
 
 	function handleKeyboardClick(keyHit) {
+		console.log(keyHit);
 
 		var currentNote = song.note();
-		var musicKey = song.getCurrentKey();
-		var keyboardKey = keyboard.getKey(currentNote);
+		var hitNote = keyboard.getMusicKeyFromKeyboard(keyHit);
+		var expectedNote = keyboard.getKey(currentNote);
 
-		console.log('clicking game ' +keyHit+' ' + musicKey);
+		console.log('clicking game ' +expectedNote+' ' + hitNote);
 
-		if(keyHit == musicKey) {
-			keyboardKey.clickNote();
+		if(hitNote == expectedNote) {
+			expectedNote.clickNote();
 			score = score + 10;
 			scorePanel.text(score);
 		}

@@ -34,4 +34,6 @@ function KeyCode() {
 	keycodeMap["88"] = "x";
 	keycodeMap["89"] = "y";
 	keycodeMap["90"] = "z";
+	keycodeMap["186"] = ";";
+	keycodeMap["222"] = "'";
 }

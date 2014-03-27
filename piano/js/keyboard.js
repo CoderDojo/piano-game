@@ -4,9 +4,14 @@ function KeyBoard() {
 	this.getKey = getKey;
 
 	var noteMap = {}
+	var keyboardMap = {}
 	
 	function getKey(note) {
 		return noteMap[note];
+	}
+
+	function getKeyFromKeyboard(keyCode) {
+		return keyboardMap[keyCode]
 	}
 	
 	function load() {
@@ -29,5 +34,10 @@ function KeyBoard() {
 		noteMap["A#"] = new MusicKey('audioAsharp','sharpA','sharpSelected');
 		noteMap["C1#"] = new MusicKey('audioC5sharp','sharpC1','sharpSelected');
 		noteMap["D1#"] = new MusicKey('audioD5sharp','sharpD1','sharpSelected');
+	}
+
+	function mapElement(musicKey, note, keyCode) {
+		nodeMap[node] = musicKey;
+		keyboardMap[keyCode] = musicKey;
 	}
 }

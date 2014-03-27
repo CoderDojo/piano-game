@@ -3,20 +3,16 @@
  */
 function Song(songDetails, timeout, keyboard) {
 
+	this.currentNote;	
+	this.play = play;
+	this.note = note;
+
 	var name = songDetails.name;
 	var notes = songDetails.notes;
 	var currentNoteNumber = 0;
 	var notePanel;
 	var keyboardPanel;
 	var timeout = timeout;
-	var currentMusicKey;
-	
-	this.currentNote;
-	this.currentKey;
-	
-	this.play = play;
-	this.note = note;
-	this.getCurrentKey = getCurrentKey;
 	
 	function play() {
 		currentNoteNumber = 0;
@@ -35,9 +31,8 @@ function Song(songDetails, timeout, keyboard) {
 	
 	function displayNextNote() {
 		if(currentNoteNumber < notes.length) {
-			this.currentNote = notes[currentNoteNumber].note;
-			this.currentKey =  notes[currentNoteNumber].keyboard;
-			if(currentNote != "" && currentKey != "") {
+			this.currentNote = notes[currentNoteNumber];
+			if(currentNote != "") {
 				displayNoteOnScreen();
 				currentNoteNumber++;
 				setTimeout(displayNextNote, timeout);
@@ -51,7 +46,7 @@ function Song(songDetails, timeout, keyboard) {
 		currentMusicKey.addClass('nextNote');
 		setNoteColor();
 		notePanel.text(currentNote);
-		keyboardPanel.text(currentKey);
+		keyboardPanel.text(keyboard.getNoteForKeyboard(currentNote));
 	}
 	
 	function removeKeySupport() {

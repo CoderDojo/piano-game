@@ -25,12 +25,20 @@ function Piano(game) {
 
 	function handleKeyboardClick(e) {
 		var code = (e.keyCode ? e.keyCode : e.which);
+		console.log(code);
 		var keyCode = new KeyCode();
 		var keyHit = keyCode.getCharacter(code);
 		
-		if(game && game.isGameRunning()) {
+		if(game.isGameRunning())
 			game.handleKeyboardClick(keyHit)
+		else {
+			playNote(keyHit);
 		}
 	}
 
+	function playNote(keyHit) {
+		var musicKey = keyBoard.getMusicKeyFromKeyboard(keyHit);
+		if(musicKey)
+			musicKey.clickNote();
+	}
 }

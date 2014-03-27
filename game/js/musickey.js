@@ -2,14 +2,13 @@ var keyPressed = false;
 
 function MusicKey(audioId, noteId, selectedCss) {
 		
+		this.clickNote = clickNote;
+		this.getCurrentNote = getCurrentNote;
+
 		var audioId = audioId;
 		var imageId = imageId;
 		var selectedCss = selectedCss;
-		
-		this.clickNote = clickNote;
-		this.getCurrentNote = getCurrentNote;
 		var audio = new Audio();
-		
 		var note = $("#"+noteId);
 		
 		note.click(function() {
