@@ -74,12 +74,11 @@ function Game(keyboard) {
 		var hitNote = keyboard.getMusicKeyFromKeyboard(keyHit);
 		var expectedNote = keyboard.getKey(currentNote);
 
-		console.log('clicking game ' +expectedNote+' ' + hitNote);
-
 		if(hitNote == expectedNote) {
 			expectedNote.clickNote();
 			score = score + 10;
 			scorePanel.text(score);
 		}
+
 	}
 }

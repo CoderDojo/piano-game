@@ -16,7 +16,7 @@ function Piano(game) {
 
 	function createKeyBoard() {
 		keyBoard = new KeyBoard();
-		keyBoard.load();
+		keyBoard.load(playNote);
 	}
 
 	function createGame() {
@@ -28,15 +28,19 @@ function Piano(game) {
 		console.log(code);
 		var keyCode = new KeyCode();
 		var keyHit = keyCode.getCharacter(code);
-		
-		if(game.isGameRunning())
-			game.handleKeyboardClick(keyHit)
-		else {
-			playNote(keyHit);
-		}
+		playNote(keyHit);
 	}
 
 	function playNote(keyHit) {
+		if(game.isGameRunning()) {
+			game.handleKeyboardClick(keyHit)
+		}
+		else {
+			clickNote(keyHit);
+		}
+	}
+
+	function clickNote(keyHit) {
 		var musicKey = keyBoard.getMusicKeyFromKeyboard(keyHit);
 		if(musicKey)
 			musicKey.clickNote();

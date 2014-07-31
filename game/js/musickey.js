@@ -1,6 +1,6 @@
 var keyPressed = false;
 
-function MusicKey(audioId, noteId, selectedCss) {
+function MusicKey(audioId, noteId, selectedCss, keyCode, mouseClick) {
 		
 		this.clickNote = clickNote;
 		this.getCurrentNote = getCurrentNote;
@@ -12,11 +12,11 @@ function MusicKey(audioId, noteId, selectedCss) {
 		var note = $("#"+noteId);
 		
 		note.click(function() {
-			keyPress();
+			mouseClick(keyCode);
 		});
 		
 		function clickNote() {
-			note.click();
+			keyPress();
 		}
 		
 		function getCurrentNote() {
