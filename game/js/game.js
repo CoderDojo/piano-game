@@ -68,8 +68,6 @@ function Game(keyboard) {
 	}
 
 	function handleKeyboardClick(keyHit) {
-		console.log(keyHit);
-
 		var currentNote = song.note();
 		var hitNote = keyboard.getMusicKeyFromKeyboard(keyHit);
 		var expectedNote = keyboard.getKey(currentNote);
