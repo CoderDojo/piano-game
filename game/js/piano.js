@@ -25,7 +25,6 @@ function Piano(game) {
 
 	function handleKeyboardClick(e) {
 		var code = (e.keyCode ? e.keyCode : e.which);
-		console.log(code);
 		var keyCode = new KeyCode();
 		var keyHit = keyCode.getCharacter(code);
 		playNote(keyHit);
